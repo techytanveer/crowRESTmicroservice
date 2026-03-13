@@ -1,4 +1,98 @@
+# crowRESTmicroservice
 
+A high-performance, multithreaded C++ REST API designed for real-time cryptographic operations. This service leverages OpenSSL (EVP) for hardware-accelerated encryption and Crow for an asynchronous web layer.
+
+## 🚀 Key Features
+
+*SHA-256 Hashing:* Fast, one-way integrity checks.
+
+*AES-256-CBC Encryption:* Two-way symmetric encryption using unique, randomized IVs (Initialization Vectors) for every request.
+
+*Benchmarking:* Built-in microsecond-precision performance tracking for cryptographic overhead.
+
+*Base64 Integration:* Automatic encoding/decoding of binary ciphertexts for safe JSON transmission.
+
+*CI/CD Integrated:* Fully automated build and unit test pipeline via GitHub Actions.
+
+## 🛠 Tech Stack
+
+*Engine:* C++17
+
+*REST Layer:* Crow Framework
+
+*Cryptography:* OpenSSL
+
+*Networking:* Asio
+
+*Unit Testing:* doctest
+
+## 📦 Installation & Setup
+
+**1. Prerequisitesi**
+
+You must have the development headers for OpenSSL and Asio installed on your system:
+
+```
+# Ubuntu/Debian
+sudo apt update && sudo apt install -y libssl-dev libasio-dev build-essential cmake
+```
+
+**2. Build**
+
+```
+mkdir build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release
+make
+```
+
+**3. Run**
+
+```
+./crow_api
+```
+
+## 🚦 API Endpoints
+
+```
+| Method |	Endpoint | Description |
+| ------ |  -------- | ----------- |
+| `POST` |	`/hash` | Returns a SHA-256 hex string of the input. |
+| `POST` |	`/encrypt/aes256` |	Encrypts data; returns ciphertext and iv (Base64). |
+| `POST` |	`/decrypt/aes256` |	Reverses AES-256 given a key and iv. |
+| `POST` |	`/benchmark` | Measures execution time of algorithms in microseconds. |
+```
+
+**Example Request (AES Encryption)**
+
+```
+POST /encrypt/aes256
+{
+  "data": "Hello World",
+  "key": "12345678901234567890123456789012"
+}
+
+```
+
+## 🧪 Automated Testing
+
+This project uses a dual-testing strategy:
+
+ 1. **Unit Tests:** Compiled as a separate binary (`unit_tests`) to verify OpenSSL logic.
+ 2. **Integration Tests:** A Bash script (`test_api.sh`) that simulates real-world HTTP traffic against the running server.
+
+To run the full suite:
+
+```
+./build/unit_tests
+./test_api.sh
+```
+## 🛡 Security Design
+
+ - **EVP Abstraction:** Uses OpenSSL’s high-level EVP interface to benefit from hardware acceleration (AES-NI) and side-channel attack protection.
+ - **IV Randomization:** Prevents deterministic encryption (identical plaintexts never produce identical ciphertexts).
+ - **Statelessness:** The API does not store keys or sensitive data, acting as a pure transformation layer.
+
+## Project Structure
 
 ```
 crowRESTmicroservice/
