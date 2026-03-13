@@ -4,27 +4,27 @@ A high-performance, multithreaded C++ REST API designed for real-time cryptograp
 
 ## 🚀 Key Features
 
-*SHA-256 Hashing:* Fast, one-way integrity checks.
+**SHA-256 Hashing:** Fast, one-way integrity checks.
 
-*AES-256-CBC Encryption:* Two-way symmetric encryption using unique, randomized IVs (Initialization Vectors) for every request.
+**AES-256-CBC Encryption:** Two-way symmetric encryption using unique, randomized IVs (Initialization Vectors) for every request.
 
-*Benchmarking:* Built-in microsecond-precision performance tracking for cryptographic overhead.
+**Benchmarking:** Built-in microsecond-precision performance tracking for cryptographic overhead.
 
-*Base64 Integration:* Automatic encoding/decoding of binary ciphertexts for safe JSON transmission.
+**Base64 Integration:** Automatic encoding/decoding of binary ciphertexts for safe JSON transmission.
 
-*CI/CD Integrated:* Fully automated build and unit test pipeline via GitHub Actions.
+**CI/CD Integrated:** Fully automated build and unit test pipeline via GitHub Actions.
 
 ## 🛠 Tech Stack
 
-*Engine:* C++17
+**Engine:** C++17
 
-*REST Layer:* Crow Framework
+**REST Layer:** Crow Framework
 
-*Cryptography:* OpenSSL
+**Cryptography:** OpenSSL
 
-*Networking:* Asio
+**Networking:** Asio
 
-*Unit Testing:* doctest
+**Unit Testing:** doctest
 
 ## 📦 Installation & Setup
 
@@ -53,14 +53,12 @@ make
 
 ## 🚦 API Endpoints
 
-```
 | Method |	Endpoint | Description |
 | ------ |  -------- | ----------- |
 | `POST` |	`/hash` | Returns a SHA-256 hex string of the input. |
 | `POST` |	`/encrypt/aes256` |	Encrypts data; returns ciphertext and iv (Base64). |
 | `POST` |	`/decrypt/aes256` |	Reverses AES-256 given a key and iv. |
 | `POST` |	`/benchmark` | Measures execution time of algorithms in microseconds. |
-```
 
 **Example Request (AES Encryption)**
 
