@@ -1,0 +1,5 @@
+build/
+.vscode/
+*.o
+crow_api
+unit_tests
