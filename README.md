@@ -1,6 +1,7 @@
-![Build Status](https://github.com/YOUR_USER/YOUR_REPO/actions/workflows/cmake-build.yml/badge.svg)
+![Build Status](https://github.com/techytanveer/crowRESTmicroservice/actions/workflows/cmake-build.yml/badge.svg)
 ![C++ Standard](https://img.shields.io/badge/C%2B%2B-17-blue.svg)
 ![Framework](https://img.shields.io/badge/Framework-Crow-green.svg)
+![REST API](https://img.shields.io/badge/REST--API-Supported-orange.svg)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 # crowRESTmicroservice
